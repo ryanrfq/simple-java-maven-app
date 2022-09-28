@@ -24,6 +24,11 @@ pipeline {
     	    	    }
     	        }
     	}
+        stage('Manual Approval'){
+            steps {
+                input(message:"Lanjutkan ke tahap Deploy?")
+            }
+        }
     	stage('Deploy') {
     	        steps {
     	            sh './jenkins/scripts/deliver.sh'
